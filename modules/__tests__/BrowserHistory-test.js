@@ -65,18 +65,6 @@ describeHistory("a browser history", () => {
       });
     });
 
-    describe("push with an encoded path string", () => {
-      it("creates a location object with decoded pathname", done => {
-        TestSequences.PushEncodedLocation(history, done);
-      });
-    });
-
-    describe("push with an invalid path string (bad percent-encoding)", () => {
-      it("throws an error", done => {
-        TestSequences.PushInvalidPathname(history, done);
-      });
-    });
-
     describe("replace a new path", () => {
       it("calls change listeners with the new location", done => {
         TestSequences.ReplaceNewLocation(history, done);
@@ -92,24 +80,6 @@ describeHistory("a browser history", () => {
     describe("replace state", () => {
       it("calls change listeners with the new location", done => {
         TestSequences.ReplaceState(history, done);
-      });
-    });
-
-    describe("replace  with an invalid path string (bad percent-encoding)", () => {
-      it("throws an error", done => {
-        TestSequences.ReplaceInvalidPathname(history, done);
-      });
-    });
-
-    describe("location created by encoded and unencoded pathname", () => {
-      it("produces the same location.pathname", done => {
-        TestSequences.LocationPathnameAlwaysDecoded(history, done);
-      });
-    });
-
-    describe("location created with encoded/unencoded reserved characters", () => {
-      it("produces different location objects", done => {
-        TestSequences.EncodedReservedCharacters(history, done);
       });
     });
 
